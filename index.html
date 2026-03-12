@@ -341,7 +341,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { label: '5G Core Network', data: [{ x: 4.5, y: 3.5, r: 12 }], backgroundColor: 'rgba(0, 255, 0, 0.6)', borderColor: '#00ff00', borderWidth: 2 }
             ]
         },
-        options: { responsive: true, maintainAspectRatio: false, scales: { x: { min: 1, max: 5 }, y: { min: 1, max: 5.5 } } }
+        options: { responsive: true, maintainAspectRatio: false, scales: { x: { min: 1, max: 5 , title: { display: true, text: 'Riesgo de Inversión'  } }, y: { min: 1, max: 5.5 , title: { display: true, text: 'Potencial para negocios'  } } } }
     });
 
     new Chart(document.getElementById('macroRiskChart'), {
@@ -380,3 +380,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
