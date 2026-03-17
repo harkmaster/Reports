@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinación de Planificación Estratégica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+<style>span {
+  font-size: 24px;
+}
+.text-xl
+ {
+  font-size: 36px;
+}</style>
+
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-gray-800 relative z-0 pb-16">
+
+    <!-- Fondo decorativo superior -->
+    <div class="absolute top-0 left-0 right-0 h-[45vh] bg-slate-900 -z-10 overflow-hidden">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[100%] rounded-full bg-gradient-to-br from-blue-600/20 to-transparent blur-3xl"></div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[40%] h-[100%] rounded-full bg-gradient-to-tl from-indigo-500/20 to-transparent blur-3xl"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 pt-16">
+        
+        <!-- Header -->
+        <header class="mb-16 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight drop-shadow-md">
+                Coordinación de Planificación Estratégica
+            </h1>
+            <p class="text-lg text-blue-200 uppercase tracking-[0.2em] font-bold">
+                Resumen de Actividades Estratégicas
+            </p>
+        </header>
+
+        <!-- Grid Layout -->
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <!-- Las tarjetas se generan dinámicamente con JavaScript -->
+        </div>
+
+        <!-- Imagen de Equipo -->
+        <div class="mt-16 w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-200/60">
+            <img 
+                 src="Image.png" 
+                alt="Equipo celebrando un buen trabajo" 
+                class="w-full h-auto object-cover block"
+            >
+        </div>
+
+
+    </div>
+
+    <script>
+        const activities = [
+            {
+                id: 1,
+                title: "Sostenibilidad",
+                icon: "leaf",
+                gradient: "bg-gradient-to-br from-emerald-400 to-teal-600",
+                items: [
+                    "Envío de informe final Bandera Azul 2025 y PGAI 2025.",
+                    "Certificación y sello de códigos verdes obtenidos.",
+                    "Gestión de certificaciones sostenibles para mercadeo, ventas y sitio web.",
+                    "Procedimiento de cuantificación de emisiones (Alcance 3, NIIF S1 y S2).",
+                    "Levantamiento de viabilidades para proyecto 5G.",
+                    "Recopilación de datos para informes adicionales."
+                ]
+            },
+            {
+                id: 2,
+                title: "Informes Empresariales",
+                icon: "file-text",
+                gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
+                items: [
+                    "Entrega en tiempo y forma de:",
+                    "CMI Trimestral y Corporativo.",
+                    "POI CGR y POI general.",
+                    "IIG.",
+                    "Justificación de cambio de metas.",
+                    "Reporte de incumplimientos de indicadores."
+                ]
+            },
+            {
+                id: 3,
+                title: "Vigilancia Estratégica",
+                icon: "eye",
+                gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
+                items: [
+                    "Participación y entrega de insumos a nivel Corporativo.",
+                    "Informe sobre tendencias y tecnologías emergentes para adopción operativa.",
+                    "Informe de Inteligencia Competitiva, Prospectiva Tecnológica y Estrategia de Mercado."
+                ]
+            },
+            {
+                id: 4,
+                title: "Estrategia",
+                icon: "target",
+                gradient: "bg-gradient-to-br from-purple-500 to-fuchsia-600",
+                items: [
+                    "Distribución de herramientas de seguimiento 2026.",
+                    "Seguimiento Táctico-Operativo 2026.",
+                    "Informe de Cumplimiento de Metas (IV Trimestre 2025).",
+                    "Revisión de insumos corporativos y apoyo a jefatura.",
+                    "Gestión de riesgos por incumplimientos (con RyC).",
+                    "Apoyo metodológico en seguimiento mensual.",
+                    "Actualización de PESTEL, FODA y PORTER."
+                ]
+            },
+            {
+                id: 5,
+                title: "Proyectos de la Estrategia",
+                icon: "briefcase",
+                gradient: "bg-gradient-to-br from-amber-400 to-orange-500",
+                items: [
+                    "Envío de estructuras de datos requeridas para toma de decisiones a la DOP."
+                ]
+            },
+            {
+                id: 6,
+                title: "Salud Ocupacional",
+                icon: "shield-plus",
+                gradient: "bg-gradient-to-br from-rose-400 to-red-600",
+                items: [
+                    "Revisión de EPP de personal 5G.",
+                    "Supervisión de lavado de tanques, descarga de gasolina y A/C.",
+                    "Visitas a sucursales, edificios y estaciones de pesaje.",
+                    "Creación de canal de apoyo SO y atención de solicitudes.",
+                    "Obtención de Certificación SIRESOL.",
+                    "Cumplimiento de informes ante el MTSS.",
+                    "Eventos para el bienestar del colaborador."
+                ]
+            },
+            {
+                id: 7,
+                title: "Otros",
+                icon: "layers",
+                gradient: "bg-gradient-to-br from-slate-600 to-slate-800",
+                items: [
+                    "Participación en Comités Corporativos.",
+                    "Atención de Auditorías e insumos para certificación ISO 9001.",
+                    "Atención de solicitudes de la jefatura."
+                ]
+            }
+        ];
+
+        const container = document.getElementById('cards-container');
+
+        activities.forEach(activity => {
+            const listItems = activity.items.map(item => `
+                <li class="text-sm text-slate-600 flex items-start leading-relaxed">
+                    <span class="mr-3 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${activity.gradient}"></span>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            const cardHTML = `
+                <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100 overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 left-0 w-full h-2 ${activity.gradient}"></div>
+                    
+                    <div class="p-8 flex flex-col h-full z-10">
+                        <div class="flex items-center mb-6">
+                            <div class="p-3 rounded-xl shadow-md ${activity.gradient} mr-5 transform group-hover:scale-110 transition-transform duration-300">
+                                <i data-lucide="${activity.icon}" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <h2 class="text-xl font-black text-slate-800 leading-tight">
+                                ${activity.title}
+                            </h2>
+                        </div>
+                        
+                        <ul class="space-y-3 flex-grow">
+                            ${listItems}
+                        </ul>
+                    </div>
+                    
+                    <div class="absolute bottom-0 right-0 w-32 h-32 rounded-tl-full opacity-10 ${activity.gradient} z-0 pointer-events-none"></div>
+                </div>
+            `;
+            container.innerHTML += cardHTML;
+        });
+
+        // Inicializar iconos
+        lucide.createIcons();
+    </script>
+</body>
+</html>
